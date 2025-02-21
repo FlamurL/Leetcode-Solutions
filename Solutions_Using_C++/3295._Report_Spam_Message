@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool reportSpam(vector<string>& message, vector<string>& bannedWords) {
+        map<string, int>m;
+        for(int i=0;i<bannedWords.size();i++){
+            bannedWords[i]=m[bannedWords[i]]++;
+        }
+        int cnt=0;
+        for(int i=0;i<message.size();i++){
+            if(m[message[i]]>0){
+                cnt++;
+            }
+            if(cnt>1)
+            break;
+        }
+        bool is;
+        if(cnt>1)
+        is=true;
+        else
+        is=false;
+
+        return is;
+
+    }
+};
